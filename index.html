@@ -38,17 +38,16 @@
 <main id="main">
   <section class="opener" id="top" aria-labelledby="hero-title">
     <div class="opener-panel">
+      <div class="opener-glow" aria-hidden="true"></div>
       <canvas id="field" aria-hidden="true"></canvas>
       <div class="opener-content">
-        <p class="kicker"><img src="img/icon.png" width="22" height="22" alt="">For Mac&nbsp;&nbsp;·&nbsp;&nbsp;Free</p>
+        <p class="kicker"><img src="img/icon.png" width="22" height="22" alt="">For Mac</p>
         <h1 id="hero-title">Voice Notes</h1>
         <p class="lead">Dictation and meeting notes in one Mac menu-bar app. Private, and on your device.</p>
         <p class="sub">Replaces your dictation and meeting-notes apps.</p>
         <div class="opener-actions">
           <span class="hint" aria-hidden="true"><span class="hint-dot"></span><span class="hint-touch">Press and hold the field</span><span class="hint-mouse">Press and hold anywhere up here</span></span>
-          <button class="mic-btn" id="micBtn" type="button" aria-pressed="false"><span class="mic-ico" aria-hidden="true"></span><span class="mic-label">Try speaking</span></button>
         </div>
-        <p class="mic-note" id="micNote">Optional. The mic is read only inside this tab to move the field. Nothing is recorded or sent.</p>
       </div>
     </div>
   </section>
@@ -211,11 +210,11 @@
       <p class="body">How Voice Notes lines up against a dictation app and a meeting-notes app.</p>
     </div>
     <div class="wrap">
-      <div class="table-scroll" tabindex="0" role="region" aria-label="Feature comparison, scrolls sideways on small screens">
+      <div class="table-wrap">
         <table class="compare">
           <colgroup><col class="feat"><col><col><col></colgroup>
           <caption class="vh">Features of Voice Notes, Wispr Flow and Granola</caption>
-          <thead><tr><td></td><th scope="col" class="us">Voice Notes</th><th scope="col">Wispr Flow</th><th scope="col">Granola</th></tr></thead>
+          <thead><tr><td class="corner"></td><th scope="col" class="us"><span class="app"><img src="img/logo-voice-notes.png" width="28" height="28" alt=""><span>Voice Notes</span></span></th><th scope="col"><span class="app"><img src="img/logo-wispr-flow.png" width="28" height="28" alt=""><span>Wispr Flow</span></span></th><th scope="col"><span class="app"><img src="img/logo-granola.png" width="28" height="28" alt=""><span>Granola</span></span></th></tr></thead>
           <tbody>
           <tr><th scope="row">Dictation into any app</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="n" role="img" aria-label="No">✗</span></td></tr>
           <tr><th scope="row">Meeting notes</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td></tr>
@@ -233,7 +232,8 @@
           </tbody>
         </table>
       </div>
-      <p class="fineprint">Based on each company’s public product, pricing and help pages as of October 2026. “Cloud” means audio is sent to the company’s servers for transcription, or notes are stored there. Wispr Flow and Granola are trademarks of their owners and are named only for comparison.</p>
+      <p class="fineprint">Based on each company’s public product, pricing and help pages as of October 2026. “Cloud” means audio is sent to the company’s servers for transcription, or notes are stored there.</p>
+      <p class="fineprint">Wispr Flow, Granola and their logos are trademarks of their respective owners, shown only to identify the products compared. Voice Notes is not affiliated with either company.</p>
     </div>
   </section>
 
@@ -268,8 +268,19 @@
 
 <footer class="footer">
   <div class="wrap footer-inner">
-    <span class="brand small"><img src="img/icon.png" width="20" height="20" alt="">Voice Notes</span>
-    <span>Built by Ryan Ramchandar</span>
+    <div class="footer-brand">
+      <span class="brand small"><img src="img/icon.png" width="22" height="22" alt="">Voice Notes</span>
+      <p>Dictation and meeting notes for Mac. On your device.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#dictation">Dictation</a>
+      <a href="#meetings">Meetings</a>
+      <a href="#compare">Compare</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+  </div>
+  <div class="wrap footer-base">
+    <span>A personal project by Ryan Ramchandar.</span>
   </div>
 </footer>
 <script src="demo.js" defer></script>
