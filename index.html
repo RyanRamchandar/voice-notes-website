@@ -29,29 +29,66 @@
     <nav aria-label="Sections">
       <a href="#dictation">Dictation</a>
       <a href="#meetings">Meetings</a>
+      <a href="#compare">Compare</a>
       <a href="#privacy">Privacy</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero" id="top">
+  <section class="opener" id="top" aria-labelledby="hero-title">
+    <div class="opener-panel">
+      <canvas id="field" aria-hidden="true"></canvas>
+      <div class="opener-content">
+        <p class="kicker"><img src="img/icon.png" width="22" height="22" alt="">For Mac&nbsp;&nbsp;·&nbsp;&nbsp;Free</p>
+        <h1 id="hero-title">Voice Notes</h1>
+        <p class="lead">Dictation and meeting notes in one Mac menu-bar app. Private, and on your device.</p>
+        <p class="sub">Replaces your dictation and meeting-notes apps.</p>
+        <div class="opener-actions">
+          <span class="hint" aria-hidden="true"><span class="hint-dot"></span><span class="hint-touch">Press and hold the field</span><span class="hint-mouse">Press and hold anywhere up here</span></span>
+          <button class="mic-btn" id="micBtn" type="button" aria-pressed="false"><span class="mic-ico" aria-hidden="true"></span><span class="mic-label">Try speaking</span></button>
+        </div>
+        <p class="mic-note" id="micNote">Optional. The mic is read only inside this tab to move the field. Nothing is recorded or sent.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero" id="see-it">
     <div class="wrap narrow">
-      <img class="hero-icon" src="img/icon.png" width="96" height="96" alt="">
-      <h1>Voice Notes</h1>
-      <p class="lead">Dictation and meeting notes in one Mac menu-bar app. Private, and on your device.</p>
-      <p class="sub">Replaces your dictation and meeting-notes apps.</p>
+      <p class="eyebrow">In any app</p>
+      <h2>Your words land at the cursor.</h2>
     </div>
     <div class="wrap">
-      <figure class="shot shot-window">
-        <picture>
-          <source srcset="img/hero-mobile-dark.webp" media="(max-width: 560px) and (prefers-color-scheme: dark)" width="975" height="1022">
-          <source srcset="img/hero-mobile-light.webp" media="(max-width: 560px)" width="975" height="1022">
-          <source srcset="img/hero-dark.webp" media="(prefers-color-scheme: dark)">
-          <img src="img/hero-light.webp" width="2000" height="1250" fetchpriority="high"
-               alt="The Voice Notes meeting window showing a demo meeting called Roadmap review, with a summary, slide snapshots, and a transcript labelled by speaker.">
-        </picture>
-      </figure>
+      <div class="demo" id="demo" role="img" aria-label="Animation: while fn is held, a small listening pill with a moving waveform appears at the bottom of the screen. When fn is released, the spoken words are pasted into the text field of the app in front, all at once.">
+        <div class="screen" aria-hidden="true">
+          <div class="menubar">
+            <span class="mb-app"><b class="sc s1">Assistant</b><b class="sc s2">Chat</b><b class="sc s3">Writer</b></span>
+            <span class="mb-menus">File&nbsp;&nbsp; Edit&nbsp;&nbsp; View&nbsp;&nbsp; Window&nbsp;&nbsp; Help</span>
+            <span class="mb-right"><span class="mb-vn"><i></i><i></i><i></i><i></i></span><span class="mb-clock">Thu 9:41</span></span>
+          </div>
+          <div class="win">
+            <div class="titlebar"><span class="lights"><i></i><i></i><i></i></span>
+              <span class="wtitle"><span class="sc s1">Assistant</span><span class="sc s2">Sam Rivera</span><span class="sc s3">Weekly update</span></span></div>
+            <div class="wbody">
+              <div class="pane sc s1 p-ai">
+                <p class="ai-h">What can I help with?</p>
+                <div class="field ai-field"><span class="caret0"></span><span class="ph">Ask anything</span><span class="txt">Summarize these release notes in three bullet points and flag anything that changes the public API.</span><span class="caret"></span></div>
+              </div>
+              <div class="pane sc s2 p-chat">
+                <div class="bubbles"><p class="in">Are we still on for lunch tomorrow?</p></div>
+                <div class="field chat-field"><span class="caret0"></span><span class="ph">Message</span><span class="txt">Yes, let’s do 12:30 at the usual place. I’ll grab us a table.</span><span class="caret"></span></div>
+              </div>
+              <div class="pane sc s3 p-doc">
+                <p class="doc-h">Weekly update</p>
+                <p class="doc-meta">Team notes</p>
+                <div class="field doc-field"><span class="caret0"></span><span class="txt">This week we shipped the new onboarding flow, fixed the sync bug for large files, and started on offline mode.</span><span class="caret"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pill"><div class="bars"><i style="--h:0.25;--d:0.46s;--o:0s"></i><i style="--h:0.5;--d:0.62s;--o:-0.21s"></i><i style="--h:0.8;--d:0.38s;--o:-0.09s"></i><i style="--h:0.6;--d:0.54s;--o:-0.33s"></i><i style="--h:0.95;--d:0.42s;--o:-0.17s"></i><i style="--h:0.7;--d:0.7s;--o:-0.05s"></i><i style="--h:0.4;--d:0.5s;--o:-0.27s"></i><i style="--h:0.65;--d:0.36s;--o:-0.13s"></i><i style="--h:0.85;--d:0.58s;--o:-0.39s"></i><i style="--h:0.45;--d:0.44s;--o:-0.02s"></i><i style="--h:0.3;--d:0.66s;--o:-0.24s"></i><i style="--h:0.55;--d:0.4s;--o:-0.31s"></i><i style="--h:0.2;--d:0.52s;--o:-0.11s"></i><i style="--h:0.1;--d:0.6s;--o:-0.19s"></i></div><div class="dots"><i></i><i></i><i></i></div></div>
+        </div>
+      </div>
+      <p class="keyhint"><kbd class="fn" aria-hidden="true">fn</kbd><span>Hold to talk. Let go, and it pastes.</span></p>
     </div>
   </section>
 
@@ -63,14 +100,12 @@
     </div>
     <div class="wrap grid-2">
       <figure class="card">
-        <div class="shot shot-flat">
-          <picture>
-            <source srcset="img/pill-dark.webp" media="(prefers-color-scheme: dark)">
-            <img src="img/pill-light.webp" width="780" height="340" loading="lazy" decoding="async"
-                 alt="The small listening indicator that appears while you hold fn, above a finished dictation waiting to be copied.">
-          </picture>
+        <div class="shot shot-flat cleanup">
+          <div class="cl-row"><span class="cl-tag">You say</span><p class="cl-said">“um so I think we should uh move the design review to Thursday at two”</p></div>
+          <div class="cl-arrow" aria-hidden="true">↓</div>
+          <div class="cl-row"><span class="cl-tag">It types</span><p class="cl-typed">I think we should move the design review to Thursday at two.</p></div>
         </div>
-        <figcaption><strong>Never loses a take.</strong> If there is nowhere to paste, the text waits for you to copy it.</figcaption>
+        <figcaption><strong>Cleaned up as it lands.</strong> Filler words go, punctuation goes in. Cleanup runs on your Mac too.</figcaption>
       </figure>
       <figure class="card">
         <div class="shot shot-flat">
@@ -80,7 +115,7 @@
                  alt="The personal dictionary in Settings, listing spoken words and how they should be written.">
           </picture>
         </div>
-        <figcaption><strong>Your words, spelled your way.</strong> A personal dictionary for names and terms. Fix a word once and it learns.</figcaption>
+        <figcaption><strong>Your words, spelled your way.</strong> A personal dictionary for names and terms, plus snippets for text you say often.</figcaption>
       </figure>
     </div>
   </section>
@@ -122,6 +157,17 @@
         <p>Your next meeting sits in the menu bar. One click records it, already named.</p>
       </div>
     </div>
+    <div class="wrap">
+      <figure class="shot shot-window meeting-shot">
+        <picture>
+          <source srcset="img/meeting-mobile-dark.webp" media="(max-width: 560px) and (prefers-color-scheme: dark)" width="975" height="1022">
+          <source srcset="img/meeting-mobile-light.webp" media="(max-width: 560px)" width="975" height="1022">
+          <source srcset="img/meeting-dark.webp" media="(prefers-color-scheme: dark)">
+          <img src="img/meeting-light.webp" width="2000" height="1250" loading="lazy" decoding="async"
+               alt="The Voice Notes meeting window showing a demo meeting called Roadmap review, with a summary, slide snapshots, and a transcript labelled by speaker.">
+        </picture>
+      </figure>
+    </div>
   </section>
 
   <section class="feature alt" id="snapshots">
@@ -158,7 +204,40 @@
     </div>
   </section>
 
-  <section class="feature alt" id="privacy">
+  <section class="feature alt" id="compare">
+    <div class="wrap narrow center">
+      <p class="eyebrow">Compare</p>
+      <h2>One app, both jobs.</h2>
+      <p class="body">How Voice Notes lines up against a dictation app and a meeting-notes app.</p>
+    </div>
+    <div class="wrap">
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Feature comparison, scrolls sideways on small screens">
+        <table class="compare">
+          <colgroup><col class="feat"><col><col><col></colgroup>
+          <caption class="vh">Features of Voice Notes, Wispr Flow and Granola</caption>
+          <thead><tr><td></td><th scope="col" class="us">Voice Notes</th><th scope="col">Wispr Flow</th><th scope="col">Granola</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">Dictation into any app</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="n" role="img" aria-label="No">✗</span></td></tr>
+          <tr><th scope="row">Meeting notes</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td></tr>
+          <tr><th scope="row">No bot joins the call</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td></tr>
+          <tr><th scope="row">Speaker labels</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td></tr>
+          <tr><th scope="row">Calendar integration</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td></tr>
+          <tr><th scope="row">Shared-screen snapshots</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="n" role="img" aria-label="No">✗</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td></tr>
+          <tr><th scope="row">Personal dictionary and snippets</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="q">Jargon list</span></td></tr>
+          <tr><th scope="row">Speech recognition on your Mac</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="q">Cloud</span></td><td><span class="q">Cloud</span></td></tr>
+          <tr><th scope="row">Audio and transcripts stay on your Mac</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="q">Cloud</span></td><td><span class="q">Cloud</span></td></tr>
+          <tr><th scope="row">Works offline</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="n" role="img" aria-label="No">✗</span></td><td><span class="q">Notes only</span></td></tr>
+          <tr><th scope="row">MCP for AI agents</th><td class="us"><span class="n" role="img" aria-label="No">✗</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td></tr>
+          <tr><th scope="row">Windows and phone apps</th><td class="us"><span class="n" role="img" aria-label="No">✗</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="y" role="img" aria-label="Yes">✓</span></td></tr>
+          <tr><th scope="row">No subscription</th><td class="us"><span class="y" role="img" aria-label="Yes">✓</span></td><td><span class="q">Free tier</span></td><td><span class="q">Free tier</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fineprint">Based on each company’s public product, pricing and help pages as of October 2026. “Cloud” means audio is sent to the company’s servers for transcription, or notes are stored there. Wispr Flow and Granola are trademarks of their owners and are named only for comparison.</p>
+    </div>
+  </section>
+
+  <section class="feature" id="privacy">
     <div class="wrap narrow center">
       <p class="eyebrow">Privacy</p>
       <h2>Your voice stays yours.</h2>
@@ -193,5 +272,7 @@
     <span>Built by Ryan Ramchandar</span>
   </div>
 </footer>
+<script src="demo.js" defer></script>
+<script src="hero.js" defer></script>
 </body>
 </html>
