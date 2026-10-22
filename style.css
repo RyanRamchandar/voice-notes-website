@@ -571,3 +571,55 @@ figure { margin: 0; }
   .compare .q { font-size: 10.5px; padding: 3px 6px; white-space: nowrap; letter-spacing: -0.01em; }
   .cleanup { padding: 26px 22px; }
 }
+
+/* ---------- v5 moments (moments.js); every one has a static final state without JS or with reduced motion ---------- */
+/* Demo: dots stream from the pill into the field */
+.mo-stream { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; }
+
+/* On-device numbers */
+.stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 8px 34px; margin: 30px 0 0; }
+.stats > div { display: flex; flex-direction: column-reverse; gap: 4px; }
+.stats dt { font-size: 13.5px; color: var(--muted); }
+.stats dd { margin: 0; font: 600 clamp(30px, 3.2vw, 38px)/1 var(--font-display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+  background: linear-gradient(120deg, #4b3fe0, #9a3ad6 60%, #d23a78); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stats dd small { font-size: .5em; font-weight: 600; letter-spacing: 0; margin-left: 3px; }
+.stats dd .pre { font-weight: 500; opacity: .7; margin-right: 1px; }
+.stats-note { margin-top: 14px; font-size: 12.5px; max-width: 440px; }
+.stats.js-count > div { opacity: 0; transform: translateY(8px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+.stats.js-count > div:nth-child(2) { transition-delay: .12s; } .stats.js-count > div:nth-child(3) { transition-delay: .24s; }
+.stats.js-count.in > div { opacity: 1; transform: none; }
+@media (prefers-color-scheme: dark) { .stats dd { background-image: linear-gradient(120deg, #8a92ff, #c39bff 55%, #ff95b0); } }
+@media (max-width: 900px) { .stats { justify-content: center; } .stats > div { align-items: center; } .stats-note { margin-inline: auto; } }
+@media (max-width: 420px) { .stats { gap: 8px 20px; } .stats dt { font-size: 12.5px; } }
+
+/* Meetings: two voices become a transcript */
+.voices {
+  position: relative; max-width: 640px; margin: 44px auto 0; padding: 22px 26px;
+  border-radius: var(--r-lg); background: var(--card); box-shadow: var(--shadow-sm); border: 1px solid var(--line);
+  text-align: left;
+}
+.mo-voices { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.vline { display: flex; align-items: baseline; gap: 12px; margin: 0; padding: 7px 0; font-size: 16px; line-height: 1.4; }
+.vline + .vline { border-top: 1px solid var(--line); }
+.vline b { flex: none; width: 46px; text-align: center; font-size: 12px; font-weight: 600; padding: 3px 0; border-radius: 999px;
+  color: var(--sp); background: color-mix(in srgb, var(--sp) 12%, transparent); }
+.vline span { flex: 1; min-width: 0; }
+.vline time { flex: none; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.vline.a { --sp: #5b3ee0; } .vline.b { --sp: #d6336c; }
+@media (prefers-color-scheme: dark) { .vline.a { --sp: #ab9cff; } .vline.b { --sp: #ff8fb8; } }
+.js-voices .vline > * { opacity: 0; transition: opacity .55s ease; }
+.js-voices .vline > span { transform: translateY(3px); transition: opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1); }
+.js-voices.done .vline > * { opacity: 1; transform: none; }
+.js-voices.done .vline:nth-child(2) > * { transition-delay: .09s; } .js-voices.done .vline:nth-child(3) > * { transition-delay: .18s; }
+.js-voices .vline + .vline { border-top-color: transparent; transition: border-color .6s ease .2s; }
+.js-voices.done .vline + .vline { border-top-color: var(--line); }
+@media (max-width: 560px) { .voices { padding: 16px 16px; margin-top: 36px; } .vline { font-size: 15px; gap: 10px; } .vline time { display: none; } }
+
+/* Compare: the Voice Notes checks land in sequence */
+.js-pop tbody td.us > .y { opacity: 0; transform: scale(.4); }
+.js-pop.in tbody td.us > .y { opacity: 1; transform: none;
+  transition: opacity .25s ease calc(var(--i) * 70ms), transform .55s cubic-bezier(.34,1.7,.55,1) calc(var(--i) * 70ms); }
+
+/* Privacy: dotted lock */
+.lockmark { width: 168px; height: 104px; margin: -8px auto 14px; }
+.mo-lock { display: block; width: 100%; height: 100%; }

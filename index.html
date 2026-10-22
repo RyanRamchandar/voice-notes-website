@@ -125,6 +125,12 @@
         <p class="eyebrow">On-device speech</p>
         <h2>Fast, accurate, and local.</h2>
         <p class="body">Speech recognition runs on your Mac with Parakeet. Nothing is uploaded, and there is no server to wait on. Text usually appears about half a second after you let go.</p>
+        <dl class="stats">
+          <div><dt>to transcribe a clip</dt><dd><span class="pre">~</span><span data-to="215">215</span><small>ms</small></dd></div>
+          <div><dt>word error rate</dt><dd><span data-to="5.7" data-dec="1">5.7</span><small>%</small></dd></div>
+          <div><dt>of audio uploaded</dt><dd><span data-to="0" data-from="0">0</span><small>bytes</small></dd></div>
+        </dl>
+        <p class="fineprint stats-note">Measured on the developer&rsquo;s own dictation clips, on his Mac. Your numbers will vary with your voice, mic, and Mac.</p>
       </div>
       <figure class="shot shot-flat">
         <picture>
@@ -141,6 +147,13 @@
       <p class="eyebrow">Meetings</p>
       <h2>Meeting notes, with no bot in the call.</h2>
       <p class="body">Press record and Voice Notes captures both sides of the conversation, the call audio and your microphone, right on your Mac. Nothing joins the call but you.</p>
+    </div>
+    <div class="wrap">
+      <div class="voices" role="img" aria-label="Illustration: two voices on one recording become a transcript labelled by speaker. Sample lines only.">
+        <p class="vline a"><b>Sam</b><span>Can we move the launch to the 14th?</span><time>0:04</time></p>
+        <p class="vline b"><b>You</b><span>Works for me. I&rsquo;ll update the plan.</span><time>0:09</time></p>
+        <p class="vline a"><b>Sam</b><span>Great, I&rsquo;ll let the team know.</span><time>0:13</time></p>
+      </div>
     </div>
     <div class="wrap grid-3">
       <div class="tile">
@@ -239,6 +252,7 @@
 
   <section class="feature" id="privacy">
     <div class="wrap narrow center">
+      <div class="lockmark" aria-hidden="true"></div>
       <p class="eyebrow">Privacy</p>
       <h2>Your voice stays yours.</h2>
     </div>
@@ -285,6 +299,7 @@
   </div>
 </footer>
 <script src="demo.js" defer></script>
+<script src="moments.js" defer></script>
 <script src="hero.js" defer></script>
 </body>
 </html>

@@ -214,7 +214,7 @@ void main() {
   let hy = 0, ampMax = 0, pillK = 1, bandTop = 0, bandH = 0, x0 = 0, panelTop = 0;
   let txtArr = null;
   let dark = mqDark.matches, reduce = mqReduce.matches;
-  let running = false, visible = true, raf = 0, last = 0, t0 = performance.now(), lost = false;
+  let running = false, visible = true, stageOK = true, raf = 0, last = 0, t0 = performance.now(), lost = false;
   let quality = 1, aStart = 0, aN = 0, aSlow = 0, lastFrame = 0; // adaptive resolution state
   const ptr = { x: -1e4, y: -1e4, inside: false, energy: 0, lastX: 0, lastY: 0, lastRipple: 0 };
   const RP = 8, rpX = new Float32Array(RP), rpAge = new Float32Array(RP), rpP = new Float32Array(RP);
@@ -483,7 +483,7 @@ void main() {
   }
 
   // ---------- run control ----------
-  function shouldRun() { return !reduce && visible && !document.hidden && !lost; }
+  function shouldRun() { return !reduce && visible && stageOK && !document.hidden && !lost; }
   function sync() {
     const want = shouldRun();
     if (want && !running) { running = true; last = 0; aStart = 0; lastFrame = 0; raf = requestAnimationFrame(frame); }
@@ -492,6 +492,8 @@ void main() {
   }
   const io = new IntersectionObserver((es) => { visible = es[0].isIntersecting; sync(); }, { threshold: 0 });
   io.observe(cv);
+  // share the stage with the page's other canvases: only the most visible one animates
+  if (window.__vnStage) window.__vnStage.register(cv, (on) => { stageOK = on; sync(); });
   document.addEventListener('visibilitychange', sync);
   mqReduce.addEventListener('change', () => { reduce = mqReduce.matches; sync(); });
   mqDark.addEventListener('change', themeChanged);
