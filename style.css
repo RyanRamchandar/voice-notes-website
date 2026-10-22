@@ -116,6 +116,13 @@ figure { margin: 0; }
   background: radial-gradient(closest-side, rgba(120, 90, 255, .16), rgba(120, 90, 255, .06) 55%, transparent);
 }
 #field { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
+/* GPU hero: the pill glass sits under the dots and the caret above them; JS only sets transform/opacity */
+.vn-pill {
+  position: absolute; left: 50%; border-radius: 999px; pointer-events: none; opacity: 0; will-change: transform, opacity;
+  background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.78) 55%);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.07), 0 6px 20px rgba(40,20,90,.16), 0 1px 3px rgba(40,20,90,.08);
+}
+.vn-caret { position: absolute; left: 0; top: 0; width: 2px; border-radius: 2px; background: #5b3ee0; opacity: 0; pointer-events: none; will-change: transform, opacity; }
 .opener-content {
   position: absolute; left: 0; right: 0; bottom: clamp(40px, 8vh, 84px);
   text-align: center; padding: 0 24px; pointer-events: none;
@@ -157,6 +164,8 @@ figure { margin: 0; }
     box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
   }
   .opener-panel::after { background-image: radial-gradient(rgba(200, 190, 255, .06) 1px, transparent 1.2px); }
+  .vn-pill { background: linear-gradient(180deg, rgba(58,56,66,.92), rgba(40,38,46,.86) 55%); box-shadow: 0 0 0 1px rgba(255,255,255,.15), 0 8px 26px rgba(0,0,0,.55); }
+  .vn-caret { background: #b3a4ff; }
   .opener-glow { background: radial-gradient(closest-side, rgba(140, 110, 255, .26), rgba(140, 110, 255, .09) 55%, transparent); }
   .opener h1 { background-image: linear-gradient(180deg, #ffffff 30%, #bdb6da 100%); }
   .hint { background: rgba(255,255,255,.06); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); color: #cfccdc; }
@@ -232,6 +241,25 @@ figure { margin: 0; }
 
 /* Footer */
 .footer { border-top: 1px solid var(--line); padding: 48px 0 36px; color: var(--muted); font-size: 14px; }
+/* A quiet dotted waveform above the footer: two compositor-only layers.
+   One drifts on a slow timer, the other is tied to scroll for a little depth. */
+.footer { position: relative; }
+.echo {
+  position: absolute; left: 0; right: 0; top: -33px; height: 64px; overflow: hidden; pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+}
+.echo i { position: absolute; inset: 0 -480px 0 0; background: url(img/echo-a.svg) repeat-x 0 50% / 480px 64px; opacity: .28; will-change: transform; }
+.echo .echo-b { background-image: url(img/echo-b.svg); opacity: .22; }
+@media (prefers-color-scheme: dark) { .echo .echo-a { background-image: url(img/echo-a-dark.svg); opacity: .34; } .echo .echo-b { background-image: url(img/echo-b-dark.svg); opacity: .26; } }
+@media (prefers-reduced-motion: no-preference) {
+  .echo-a { animation: echoDrift 48s linear infinite; }
+  @keyframes echoDrift { to { transform: translate3d(-480px, 0, 0); } }
+  @supports (animation-timeline: view()) {
+    .echo-b { animation: echoScroll linear both; animation-timeline: view(); }
+    @keyframes echoScroll { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-360px, 0, 0); } }
+  }
+}
 .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; }
 .footer-brand p { margin-top: 10px; }
 .brand.small { font-size: 15px; gap: 9px; color: var(--text); }
@@ -486,8 +514,7 @@ figure { margin: 0; }
 .compare tbody tr:last-child > * { border-bottom: 0; }
 .compare thead th, .compare thead td {
   position: sticky; top: var(--nav-h); z-index: 2;
-  background: color-mix(in srgb, var(--card) 96%, transparent);
-  -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%);
+  background: var(--card); /* opaque: rows scrolling underneath never show through, corner cell included */
   padding-top: 22px; padding-bottom: 18px; border-bottom: 1px solid var(--line-strong);
   font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
 }
@@ -497,25 +524,26 @@ figure { margin: 0; }
 .compare tbody tr:hover > * { background-color: color-mix(in srgb, var(--accent) 3%, transparent); }
 /* Voice Notes column: soft accent wash and ring */
 .compare tbody td.us, .compare tbody tr:hover > td.us { background-color: color-mix(in srgb, var(--accent) 7%, var(--card)); }
-.compare thead th.us { background: color-mix(in srgb, color-mix(in srgb, var(--accent) 10%, var(--card)) 97%, transparent); color: var(--accent); }
+.compare thead th.us { background: color-mix(in srgb, var(--accent) 10%, var(--card)); color: var(--accent); }
 .compare .us { box-shadow: inset 1px 0 0 color-mix(in srgb, var(--accent) 30%, transparent), inset -1px 0 0 color-mix(in srgb, var(--accent) 30%, transparent); }
 .compare thead th.us { box-shadow: inset 1px 0 0 color-mix(in srgb, var(--accent) 30%, transparent), inset -1px 0 0 color-mix(in srgb, var(--accent) 30%, transparent), inset 0 2px 0 var(--accent); }
 .compare .app .tag { font-size: 10.5px; }
 /* SVG glyphs (text inside stays for copy-paste; the role=img label is what is read) */
 .compare .y, .compare .n {
-  display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%;
-  font-size: 0; line-height: 0; vertical-align: middle;
+  display: inline-block; position: relative; width: 24px; height: 24px; border-radius: 50%;
+  font-size: 0; line-height: 0; vertical-align: middle; color: transparent;
 }
 .compare .y { background: color-mix(in srgb, var(--accent) 13%, transparent); }
 .compare .us .y { background: linear-gradient(135deg, #6a4cf0, #9a45d8); box-shadow: 0 2px 8px rgba(106, 76, 240, .3); }
 .compare .n { background: color-mix(in srgb, var(--text) 6%, transparent); }
 .compare .y::before, .compare .n::before {
-  content: ""; width: 14px; height: 14px; background: currentColor;
+  /* absolutely centred, so the hidden text glyph can never push it off-centre */
+  content: ""; position: absolute; inset: 0; margin: auto; width: 14px; height: 14px; background: var(--ink);
   -webkit-mask: var(--glyph) center / contain no-repeat; mask: var(--glyph) center / contain no-repeat;
 }
-.compare .y { color: var(--accent); --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3 7.4l2.6 2.6L11 4.4' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
-.compare .us .y { color: #fff; }
-.compare .n { color: var(--muted); --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M4.5 4.5l5 5M9.5 4.5l-5 5' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.compare .y { --ink: var(--accent); --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.3 6.95l2.5 2.5 4.9-5.3' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.compare .us .y { --ink: #fff; }
+.compare .n { --ink: var(--muted); --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M4.6 4.6l4.8 4.8M9.4 4.6l-4.8 4.8' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round'/%3E%3C/svg%3E"); }
 .compare .n::before { width: 12px; height: 12px; opacity: .8; }
 .compare .q {
   display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--muted); line-height: 1.25;
@@ -526,6 +554,8 @@ figure { margin: 0; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 @media (prefers-color-scheme: dark) {
   .compare .app img { box-shadow: 0 0 0 1px rgba(255,255,255,.12); }
+  /* a dark tile on a dark card needs a light plate to keep its edge */
+  .compare .app img.plate { background: #ecebf1; padding: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,.22), 0 2px 10px rgba(0,0,0,.45); }
 }
 @media (max-width: 560px) {
   .demo { margin-top: 36px; }
