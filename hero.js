@@ -455,7 +455,7 @@ void main() {
     let ck = 'off';
     if (typing && typeT < 3.0) {
       const prog = Math.min(1, Math.max(0, (typeT - 0.3) / 0.95));
-      const li = Math.min(txt.lines - 1, Math.floor(prog * txt.lines - 1e-6)), lp = prog * txt.lines - li, e = txt.ext[li];
+      const li = Math.max(0, Math.min(txt.lines - 1, Math.floor(prog * txt.lines - 1e-6))), lp = prog * txt.lines - li, e = txt.ext[li];
       const cx = e.minx + (e.maxx - e.minx) * Math.max(0, Math.min(1, prog >= 1 ? 1 : lp)) + txt.fs * 0.1;
       const on = prog < 1 ? 1 : (Math.sin(typeT * 8) > 0 ? 1 : 0.15);
       ck = `${Math.round(cx)},${Math.round(txt.ly[li] - txt.fs * 0.4)},${Math.round(txt.fs * 0.8)},${(on * Math.min(1, typeT * 5)).toFixed(2)}`;
