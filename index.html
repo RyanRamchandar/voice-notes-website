@@ -95,7 +95,7 @@
     <div class="wrap narrow center">
       <p class="eyebrow">Dictation</p>
       <h2>Hold fn. Talk. It types.</h2>
-      <p class="body">Works in any text field, in any app. Let go, and your words land at the cursor, with filler removed and punctuation in place.</p>
+      <p class="body">Works in any text field, in any app. Let go, and your words land at the cursor, with filler removed and punctuation in place. Other audio on the MacBook speakers is lowered while you dictate.</p>
     </div>
     <div class="wrap grid-2">
       <figure class="card">
@@ -115,6 +115,43 @@
           </picture>
         </div>
         <figcaption><strong>Your words, spelled your way.</strong> A personal dictionary for names and terms, plus snippets for text you say often.</figcaption>
+      </figure>
+      <figure class="card">
+        <div class="shot shot-flat correct">
+          <p class="corr-line">Ask <span class="corr-word">Northwind</span> to send the Q3 roadmap by Friday.</p>
+          <div class="corr-pop">
+            <span class="cl-tag">Suggested</span>
+            <div class="corr-pill">
+              <p class="corr-alt">North Wind</p>
+              <p class="corr-actions"><span class="corr-btn">Replace</span><span class="corr-btn">Replace and Add to Dictionary</span></p>
+            </div>
+          </div>
+        </div>
+        <figcaption><strong>Click the dotted word.</strong> If a second pass disagrees on a word or two, those words get a light dotted underline. Click one to replace it, or replace it and add it to your dictionary. This works in Mac apps, and in Chrome, Slack, Cursor, and similar.</figcaption>
+      </figure>
+      <figure class="card">
+        <div class="shot shot-flat cleanup">
+          <div class="cl-row"><span class="cl-tag">You say</span><p class="cl-said">“the booth is three thousand dollars, plus five dollars and fifty cents, and we meet at one twenty”</p></div>
+          <div class="cl-arrow" aria-hidden="true">↓</div>
+          <div class="cl-row"><span class="cl-tag">It types</span><p class="cl-typed">The booth is $3,000, plus $5.50, and we meet at 1:20.</p></div>
+        </div>
+        <figcaption><strong>Written the way you meant.</strong> Clear amounts and clock times are formatted. “Three pm” becomes 3 p.m. A plain number stays in words.</figcaption>
+      </figure>
+    </div>
+    <div class="wrap">
+      <figure class="card dictation-keep">
+        <div class="shot shot-flat history">
+          <div class="hist-row">
+            <span class="hist-play" aria-hidden="true"></span>
+            <p class="hist-text">The booth is $3,000, plus $5.50, and we meet at 1:20.</p>
+          </div>
+          <div class="hist-row">
+            <span class="hist-play" aria-hidden="true"></span>
+            <p class="hist-text">Ask Northwind to send the Q3 roadmap by Friday.</p>
+            <span class="cl-tag hist-flag">Flagged</span>
+          </div>
+        </div>
+        <figcaption><strong>Play it back later.</strong> Dictation audio stays on your Mac, compressed without loss, and is cleared after 30 days by default. In History, play a clip or transcribe it again with any local model, or a cloud engine you have added a key for. Clips with low confidence, a correction, or an edit after paste are flagged so you can correct them and add them to your own local accuracy set, and a menu bar row shows only when some are waiting.</figcaption>
       </figure>
     </div>
   </section>
@@ -166,7 +203,15 @@
       </div>
       <div class="tile">
         <h3>Knows your calendar</h3>
-        <p>Your next meeting sits in the menu bar. One click records it, already named.</p>
+        <p>Your next meeting sits in the menu bar. One click records it, already named. A minute before a meeting with a call link or other guests, a small glass card offers Record and links the recording to that event. You can change how early it appears.</p>
+      </div>
+      <div class="tile">
+        <h3>Notes you write first</h3>
+        <p>Add an agenda, goals, or questions ahead of time. They show as “Before the meeting” in that meeting’s notes and feed the summary.</p>
+      </div>
+      <div class="tile">
+        <h3>A countdown at the end</h3>
+        <p>A 20-second countdown card appears when you leave the call, the window closes, the scheduled end passes, or there is a long silence. It offers Keep Recording or Stop Now, and talking cancels it.</p>
       </div>
     </div>
     <div class="wrap">
