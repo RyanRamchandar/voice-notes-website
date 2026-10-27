@@ -205,6 +205,18 @@ figure { margin: 0; }
 
 /* Layouts */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 64px; align-items: start; }
+@media (min-width: 901px) {
+  /* A lone last card spans the row so the grid does not end on an empty cell. */
+  .grid-2 > .card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 48px;
+    align-items: center;
+  }
+  .grid-2 > .card:last-child:nth-child(odd) .shot { min-height: 0; }
+  .grid-2 > .card:last-child:nth-child(odd) figcaption { margin-top: 0; }
+}
 .card figcaption { margin-top: 20px; color: var(--muted); font-size: 16px; line-height: 1.55; padding-inline: 4px; }
 .card figcaption strong { color: var(--text); font-weight: 600; }
 .split { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: center; }

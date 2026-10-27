@@ -104,7 +104,7 @@
           <div class="cl-arrow" aria-hidden="true">↓</div>
           <div class="cl-row"><span class="cl-tag">It types</span><p class="cl-typed">I think we should move the design review to Thursday at two.</p></div>
         </div>
-        <figcaption><strong>Cleaned up as it lands.</strong> Filler words go, punctuation goes in. Cleanup runs on your Mac too.</figcaption>
+        <figcaption><strong>Cleaned up as it lands.</strong> Filler words go, punctuation goes in. Cleanup runs on your Mac too. The on-device cleanup model is kept warm, so the first dictation after the Mac sits idle does not wait on a cold start.</figcaption>
       </figure>
       <figure class="card">
         <div class="shot shot-flat">
@@ -114,7 +114,7 @@
                  alt="The personal dictionary in Settings, listing spoken words and how they should be written.">
           </picture>
         </div>
-        <figcaption><strong>Your words, spelled your way.</strong> A personal dictionary for names and terms, plus snippets for text you say often.</figcaption>
+        <figcaption><strong>Your words, spelled your way.</strong> A personal dictionary for names and terms, plus snippets for text you say often. Suggest first is off by default. When it is on, a small pill asks Add, Not now, or Never, instead of adding a corrected word on its own. Not now snoozes it for a week. Never stops asking.</figcaption>
       </figure>
       <figure class="card">
         <div class="shot shot-flat correct">
@@ -136,6 +136,14 @@
           <div class="cl-row"><span class="cl-tag">It types</span><p class="cl-typed">The booth is $3,000, plus $5.50, and we meet at 1:20.</p></div>
         </div>
         <figcaption><strong>Written the way you meant.</strong> Clear amounts and clock times are formatted. “Three pm” becomes 3 p.m. A plain number stays in words.</figcaption>
+      </figure>
+      <figure class="card">
+        <div class="shot shot-flat cleanup">
+          <div class="cl-row"><span class="cl-tag">You fix</span><p class="cl-said">“Ask North Wind to send the notes.”</p></div>
+          <div class="cl-arrow" aria-hidden="true">↓</div>
+          <div class="cl-row"><span class="cl-tag">It learns</span><p class="cl-typed">Northwind</p></div>
+        </div>
+        <figcaption><strong>It learns the fix.</strong> Fix a dictated word after it pastes, and Voice Notes can pick up that correction in Mac apps and in Slack, Codex, Cursor, and similar desktop apps built on web technology. Only a short fix, one or two words, is learned. Chrome itself is not watched, and password fields are never read.</figcaption>
       </figure>
     </div>
     <div class="wrap">
@@ -161,7 +169,7 @@
       <div class="split-text">
         <p class="eyebrow">On-device speech</p>
         <h2>Fast, accurate, and local.</h2>
-        <p class="body">Speech recognition runs on your Mac with Parakeet. Nothing is uploaded, and there is no server to wait on. Text usually appears about half a second after you let go.</p>
+        <p class="body">Speech recognition runs on your Mac with Parakeet. Nothing is uploaded, and there is no server to wait on. Text usually appears about half a second after you let go. A press with no real speech, a dead mic, room tone, or a tiny blip, is skipped before transcription, so nothing is typed and no engine, local or cloud, can invent text for it. Quiet speech still works.</p>
         <dl class="stats">
           <div><dt>to transcribe a clip</dt><dd><span class="pre">~</span><span data-to="215">215</span><small>ms</small></dd></div>
           <div><dt>word error rate</dt><dd><span data-to="5.7" data-dec="1">5.7</span><small>%</small></dd></div>
@@ -195,7 +203,7 @@
     <div class="wrap grid-3">
       <div class="tile">
         <h3>Who said what</h3>
-        <p>Transcripts are split by speaker, so you can scan back to the moment that mattered.</p>
+        <p>Transcripts are split by speaker, so you can scan back to the moment that mattered. Clips in the Speakers panel are levelled for playback, so a quiet mic is audible.</p>
       </div>
       <div class="tile">
         <h3>Notes that write themselves</h3>
