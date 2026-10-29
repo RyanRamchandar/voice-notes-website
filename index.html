@@ -95,7 +95,7 @@
     <div class="wrap narrow center">
       <p class="eyebrow">Dictation</p>
       <h2>Hold fn. Talk. It types.</h2>
-      <p class="body">Works in any text field, in any app. Let go, and your words land at the cursor, with filler removed and punctuation in place. Other audio on the MacBook speakers is lowered while you dictate.</p>
+      <p class="body">Works in any text field, in any app. Let go, and your words land at the cursor, with filler removed and punctuation in place. Other audio on the MacBook speakers is lowered while you dictate. On AirPods and other Bluetooth headsets, the first press records your voice, not silence.</p>
     </div>
     <div class="wrap grid-2">
       <figure class="card">
@@ -104,7 +104,7 @@
           <div class="cl-arrow" aria-hidden="true">↓</div>
           <div class="cl-row"><span class="cl-tag">It types</span><p class="cl-typed">I think we should move the design review to Thursday at two.</p></div>
         </div>
-        <figcaption><strong>Cleaned up as it lands.</strong> Filler words go, punctuation goes in. Cleanup runs on your Mac too. The on-device cleanup model is kept warm, so the first dictation after the Mac sits idle does not wait on a cold start.</figcaption>
+        <figcaption><strong>Cleaned up as it lands.</strong> Filler words go, punctuation goes in. Cleanup runs on your Mac too. The on-device cleanup model is kept warm, so the first dictation after the Mac sits idle does not wait on a cold start. If cleanup would drop a sentence, a number, or most of what you said, or cut a long dictation off mid-thought, your words are pasted instead.</figcaption>
       </figure>
       <figure class="card">
         <div class="shot shot-flat">
@@ -144,6 +144,32 @@
           <div class="cl-row"><span class="cl-tag">It learns</span><p class="cl-typed">Northwind</p></div>
         </div>
         <figcaption><strong>It learns the fix.</strong> Fix a dictated word after it pastes, and Voice Notes can pick up that correction in Mac apps and in Slack, Codex, Cursor, and similar desktop apps built on web technology. Only a short fix, one or two words, is learned. Chrome itself is not watched, and password fields are never read.</figcaption>
+      </figure>
+      <figure class="card">
+        <div class="shot shot-flat email">
+          <p class="em-to"><span>To</span> Sam</p>
+          <div class="em-body">
+            <p>Hi Sam,</p>
+            <p>I moved the design review to Thursday. The deck is attached.</p>
+            <p class="em-sign">Thanks,<br>Sam</p>
+          </div>
+        </div>
+        <figcaption><strong>Laid out like an email.</strong> Dictate into an email body, such as a Gmail-style compose field, and the greeting sits on its own line, the body is split into paragraphs, and a sign-off you say, like “thanks, Sam,” lands as the signature. An email layout toggle turns it off.</figcaption>
+      </figure>
+      <figure class="card">
+        <div class="shot shot-flat bench">
+          <div class="bench-top">
+            <p class="bench-title">Benchmark</p>
+            <p class="bench-where">On this Mac</p>
+          </div>
+          <div class="bench-metrics">
+            <div><span>Accuracy</span><b>—</b></div>
+            <div><span>Speed</span><b>—</b></div>
+            <div><span>Last run</span><b>—</b></div>
+          </div>
+          <p class="bench-wait">12 of about 30 corrected clips. <b>18 more</b> to rank.</p>
+        </div>
+        <figcaption><strong>A private leaderboard.</strong> The Benchmark tab in Settings scores speech models on your own corrected dictations, entirely on your Mac. It shows accuracy, speed, and when it last ran. It ranks only once there are enough clips, about 30, and says how many more are needed.</figcaption>
       </figure>
     </div>
     <div class="wrap">
@@ -203,7 +229,7 @@
     <div class="wrap grid-3">
       <div class="tile">
         <h3>Who said what</h3>
-        <p>Transcripts are split by speaker, so you can scan back to the moment that mattered. Clips in the Speakers panel are levelled for playback, so a quiet mic is audible.</p>
+        <p>Transcripts are split by speaker, so you can scan back to the moment that mattered. Clips in the Speakers panel are levelled for playback, so a quiet mic is audible. If the microphone and system audio drift apart, echo is removed and turns stay grouped by speaker, instead of breaking into one word per line.</p>
       </div>
       <div class="tile">
         <h3>Notes that write themselves</h3>
@@ -211,7 +237,7 @@
       </div>
       <div class="tile">
         <h3>Knows your calendar</h3>
-        <p>Your next meeting sits in the menu bar. One click records it, already named. A minute before a meeting with a call link or other guests, a small glass card offers Record and links the recording to that event. You can change how early it appears.</p>
+        <p>Your next meeting sits in the menu bar. One click records it, already named. A minute before a meeting with a call link or other guests, a small glass card offers Record and links the recording to that event. You can change how early it appears. If a Google Calendar account needs to sign in again, the menu bar shows a notice.</p>
       </div>
       <div class="tile">
         <h3>Notes you write first</h3>
@@ -219,7 +245,11 @@
       </div>
       <div class="tile">
         <h3>A countdown at the end</h3>
-        <p>A 20-second countdown card appears when you leave the call, the window closes, the scheduled end passes, or there is a long silence. It offers Keep Recording or Stop Now, and talking cancels it.</p>
+        <p>An 8-second countdown card appears when you leave the call, the window closes, the scheduled end passes, or there is a long silence. It offers Keep Recording or Stop Now, and talking cancels it.</p>
+      </div>
+      <div class="tile">
+        <h3>Redo, or tidy</h3>
+        <p>Transcribe Again keeps a backup, so you can redo a transcript and restore the previous one. Tidy cleans a transcript up.</p>
       </div>
     </div>
     <div class="wrap">
