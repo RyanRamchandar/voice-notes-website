@@ -104,7 +104,16 @@
           <div class="cl-arrow" aria-hidden="true">↓</div>
           <div class="cl-row"><span class="cl-tag">It types</span><p class="cl-typed">I think we should move the design review to Thursday at two.</p></div>
         </div>
-        <figcaption><strong>Cleaned up as it lands.</strong> Filler words go, punctuation goes in. Cleanup runs on your Mac too. The on-device cleanup model is kept warm, so the first dictation after the Mac sits idle does not wait on a cold start. If cleanup would drop a sentence, a number, or most of what you said, or cut a long dictation off mid-thought, your words are pasted instead.</figcaption>
+        <figcaption><strong>Cleaned up as it lands.</strong> Filler words go, punctuation goes in. Cleanup runs on your Mac too. The on-device cleanup model is kept warm, so the first dictation after the Mac sits idle does not wait on a cold start. If cleanup would drop a sentence, a number, or most of what you said, lose an opening, or cut a long dictation off mid-thought, your words are pasted instead.</figcaption>
+      </figure>
+      <figure class="card">
+        <div class="shot shot-flat cleanup caps">
+          <div class="cl-row"><span class="cl-tag">On screen</span><p class="caps-words"><span>Sam Rivera</span><span>Northwind</span></p></div>
+          <div class="cl-row"><span class="cl-tag">You say</span><p class="cl-said">“please ask sam rivera about northwind”</p></div>
+          <div class="cl-arrow" aria-hidden="true">↓</div>
+          <div class="cl-row"><span class="cl-tag">It types</span><p class="cl-typed">Please ask <span class="match">Sam Rivera</span> about <span class="match">Northwind</span>.</p></div>
+        </div>
+        <figcaption><strong>Names on your screen keep their capitals.</strong> A dictated word that matches one visible on screen, ignoring case, takes that word’s capitals. Only capitals change, never the words. Ordinary dictionary words, all-caps headings, and lowercase screen text are left alone.</figcaption>
       </figure>
       <figure class="card">
         <div class="shot shot-flat">
@@ -195,7 +204,7 @@
       <div class="split-text">
         <p class="eyebrow">On-device speech</p>
         <h2>Fast, accurate, and local.</h2>
-        <p class="body">Speech recognition runs on your Mac with Parakeet. Nothing is uploaded, and there is no server to wait on. Text usually appears about half a second after you let go. A press with no real speech, a dead mic, room tone, or a tiny blip, is skipped before transcription, so nothing is typed and no engine, local or cloud, can invent text for it. Quiet speech still works.</p>
+        <p class="body">Speech recognition runs on your Mac with Parakeet. Nothing is uploaded, and there is no server to wait on. Text usually appears about half a second after you let go. A press with no real speech, a dead mic, room tone, or a tiny blip, is skipped before transcription, so nothing is typed and no engine, local or cloud, can invent text for it. A click with no voice cancels cleanly: nothing is transcribed, no audio is kept, and nothing is flagged for review. Quiet speech still works.</p>
         <dl class="stats">
           <div><dt>to transcribe a clip</dt><dd><span class="pre">~</span><span data-to="215">215</span><small>ms</small></dd></div>
           <div><dt>word error rate</dt><dd><span data-to="5.7" data-dec="1">5.7</span><small>%</small></dd></div>
