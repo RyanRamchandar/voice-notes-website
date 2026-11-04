@@ -227,6 +227,9 @@ figure { margin: 0; }
 
 /* Tiles */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 64px; }
+@media (min-width: 901px) {
+  .grid-3 > .tile:last-child:nth-child(3n + 1) { grid-column: 2; }
+}
 .tile {
   position: relative; background: var(--card); border-radius: var(--r-md); padding: 28px 28px 30px;
   border: 1px solid var(--line); box-shadow: var(--shadow-sm);

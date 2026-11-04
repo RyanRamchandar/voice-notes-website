@@ -95,7 +95,7 @@
     <div class="wrap narrow center">
       <p class="eyebrow">Dictation</p>
       <h2>Hold fn. Talk. It types.</h2>
-      <p class="body">Works in any text field, in any app. Let go, and your words land at the cursor, with filler removed and punctuation in place. Other audio on the MacBook speakers is lowered while you dictate, and comes back right after your text is pasted, so the paste is never interrupted by sound fading back in. On AirPods and other Bluetooth headsets, the first press records your voice, not silence. The mic stays ready between presses, so the first sound is captured about 15 ms sooner. During a call, if the Mac switches the mic to a multi-channel input, dictation follows the channel your voice is on, so it stays audible.</p>
+      <p class="body">Works in any text field, in any app. Let go, and your words land at the cursor, with filler removed and punctuation in place. Other audio on the MacBook speakers is lowered while you dictate, and comes back right after your text is pasted, so the paste is never interrupted by sound fading back in. On AirPods and other Bluetooth headsets, the first press records your voice, not silence. The mic is prepared at launch, without turning on, so the first press starts quicker and no mic indicator shows while idle. The mic stays ready between presses, so the first sound is captured about 15 ms sooner. During a call, if the Mac switches the mic to a multi-channel input, dictation follows the channel your voice is on, so it stays audible.</p>
     </div>
     <div class="wrap grid-2">
       <figure class="card">
@@ -246,15 +246,19 @@
       </div>
       <div class="tile">
         <h3>Knows your calendar</h3>
-        <p>Your next meeting sits in the menu bar. One click records it, already named. A record prompt named for the matching calendar event appears within a couple of seconds of joining, when a call app is holding the mic and a meeting window or tab is open. With the camera on, that prompt appears in about a second. The one-minute calendar heads-up is off by default. You can change how early that heads-up appears. If a Google Calendar account needs to sign in again, the menu bar shows a notice.</p>
+        <p>Your next meeting sits in the menu bar. One click records it, already named. A record prompt named for the matching calendar event appears within about two seconds of joining, even for an untitled browser call, when a call app is holding the mic and a meeting window or tab is open. With the camera on, that prompt appears in about a second. The one-minute calendar heads-up is off by default. You can change how early that heads-up appears. If a Google Calendar account needs to sign in again, the menu bar shows a notice.</p>
       </div>
       <div class="tile">
         <h3>Notes you write first</h3>
         <p>Add an agenda, goals, or questions ahead of time. They show as “Before the meeting” in that meeting’s notes and feed the summary.</p>
       </div>
       <div class="tile">
+        <h3>On the call</h3>
+        <p>While a meeting records, a small capsule sits on the right edge of the call&rsquo;s display, with a red recording dot, a live audio level, and a timer. It is hidden from screen sharing. Hover or click it, and it expands into the notes for that meeting: Me and Others audio, invitee names you can edit, snapshots, a quick note, and Stop. It replaces the separate meeting notes window. Dictation still shows at the bottom center.</p>
+      </div>
+      <div class="tile">
         <h3>Stops when you leave</h3>
-        <p>When you leave the call or close the meeting window or tab, recording stops and transcription starts about three seconds later. An 8-second countdown card appears only for the calendar end time or a long silence. It offers Keep Recording or Stop Now, and talking cancels it.</p>
+        <p>When you leave the call or close the meeting window or tab, recording stops and transcription starts about three seconds later. If you start recording by hand during a live call, Voice Notes follows that call and stops and transcribes about three seconds after you hang up. When there is no call to follow, it asks “Meeting over?” instead of running a countdown. An 8-second countdown card appears only for the calendar end time or a long silence. It offers Keep Recording or Stop Now, and talking cancels it.</p>
       </div>
       <div class="tile">
         <h3>Redo, or tidy</h3>
